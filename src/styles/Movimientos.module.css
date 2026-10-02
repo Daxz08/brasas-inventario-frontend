@@ -1,0 +1,15 @@
+/* Type selector buttons in modal */
+.typeBtn {
+  padding: 0.625rem;
+  border-radius: 0.75rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  border: 2px solid #e8e0d8;
+  color: #9ca3af;
+  background: #fff;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+.typeBtnEntrada { border-color: #16a34a; background: #f0fdf4; color: #16a34a; }
+.typeBtnSalida  { border-color: #dc2626; background: #fef2f2; color: #dc2626; }
+.typeBtnAjuste  { border-color: #2563eb; background: #eff6ff; color: #2563eb; }

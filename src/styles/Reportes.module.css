@@ -1,0 +1,63 @@
+.filtersCard {
+  background: #fff;
+  border: 1px solid #e8e0d8;
+  border-radius: 1rem;
+  padding: 1rem;
+  margin-bottom: 1.25rem;
+}
+@media (min-width: 768px) { .filtersCard { padding: 1.25rem; margin-bottom: 1.5rem; } }
+
+.filtersGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.75rem;
+}
+@media (min-width: 640px)  { .filtersGrid { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 1024px) { .filtersGrid { grid-template-columns: repeat(4, 1fr); gap: 1rem; } }
+
+.tfoot { background: #fdf2ec; border-top: 2px solid #e8d0c4; }
+.tfootTotal {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: #c1381a;
+}
+
+/* Export modal icon box — driven by --icon-bg / --icon-color CSS vars */
+.exportIconBox {
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1rem;
+  background: var(--icon-bg, #fdf2ec);
+}
+.exportTitle {
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  color: #111827;
+  margin-bottom: 0.25rem;
+}
+.exportSubtitle { text-align: center; font-size: 0.875rem; color: #6b7280; margin-bottom: 1.5rem; }
+
+/* Confirm export btn — color driven by --btn-bg CSS var */
+.exportConfirmBtn {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.625rem;
+  border-radius: 0.75rem;
+  border: none;
+  color: #fff;
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.18s ease;
+  background: var(--btn-bg, linear-gradient(90deg,#c1381a,#d94e2b));
+}
+.exportConfirmBtn:hover { opacity: 0.9; }

@@ -1,0 +1,203 @@
+/* ── KPI cards ──────────────────────────────────────────── */
+.kpiGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+@media (min-width: 768px)  { .kpiGrid { gap: 1.25rem; margin-bottom: 2rem; } }
+@media (min-width: 1024px) { .kpiGrid { grid-template-columns: repeat(4, 1fr); } }
+
+.kpiCard {
+  background: #fff;
+  border: 1px solid #e8e0d8;
+  border-radius: 1rem;
+  padding: 1rem;
+  box-shadow: 0 1px 3px rgba(0,0,0,.06);
+  position: relative;
+  overflow: hidden;
+}
+@media (min-width: 768px) { .kpiCard { padding: 1.25rem; } }
+
+/* Colored accent strip — color driven by --strip-color CSS var */
+.kpiStrip {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  border-radius: 1rem 1rem 0 0;
+  background: var(--strip-color, #c1381a);
+}
+
+.kpiTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.75rem;
+  padding-top: 0.25rem;
+}
+@media (min-width: 768px) { .kpiTop { margin-bottom: 1rem; } }
+
+/* Icon box — bg/border driven by CSS vars */
+.kpiIconBox {
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--icon-bg, #fdf2ec);
+  border: 1px solid var(--icon-border, #fdd8cc);
+}
+@media (min-width: 768px) { .kpiIconBox { width: 2.75rem; height: 2.75rem; } }
+
+/* Value — color driven by --value-color CSS var */
+.kpiValue {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.75rem;
+  font-weight: 700;
+  line-height: 1;
+  margin-bottom: 0.25rem;
+  color: var(--value-color, #c1381a);
+}
+@media (min-width: 768px) { .kpiValue { font-size: 2.25rem; } }
+
+.kpiLabel {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: #6b7280;
+  line-height: 1.3;
+}
+
+/* Change badge — uses --badge-bg / --badge-color CSS vars */
+.kpiChangeBadge {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  padding: 0.25rem 0.625rem;
+  border-radius: 9999px;
+  white-space: nowrap;
+  background: var(--badge-bg, #f0fdf4);
+  color: var(--badge-color, #16a34a);
+  display: none;
+}
+@media (min-width: 640px) { .kpiChangeBadge { display: inline-block; } }
+
+/* ── Main content grid ──────────────────────────────────── */
+.mainGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+}
+@media (min-width: 1024px) { .mainGrid { grid-template-columns: 2fr 1fr; gap: 1.5rem; } }
+
+/* ── Movements table ────────────────────────────────────── */
+.movCard {
+  background: #fff;
+  border: 1px solid #e8e0d8;
+  border-radius: 1rem;
+  box-shadow: 0 1px 3px rgba(0,0,0,.06);
+  overflow: hidden;
+}
+.movHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.875rem 1rem;
+  border-bottom: 1px solid #f0ebe4;
+}
+@media (min-width: 768px) { .movHeader { padding: 0.875rem 1.5rem; } }
+.movTitle {
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: #1f2937;
+}
+.movViewAll {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: #c1381a;
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  transition: opacity 0.15s ease;
+}
+.movViewAll:hover { opacity: 0.7; }
+
+/* ── Alert panel ────────────────────────────────────────── */
+.alertCard {
+  background: #fff;
+  border: 1px solid #e8e0d8;
+  border-radius: 1rem;
+  box-shadow: 0 1px 3px rgba(0,0,0,.06);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+.alertHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.875rem 1rem;
+  border-bottom: 1px solid #f0ebe4;
+}
+@media (min-width: 768px) { .alertHeader { padding: 0.875rem 1.5rem; } }
+.alertTitle {
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: #1f2937;
+}
+.alertList {
+  flex: 1;
+  padding: 0.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+@media (min-width: 768px) { .alertList { padding: 1rem; } }
+
+.alertItem {
+  padding: 0.75rem;
+  border-radius: 0.75rem;
+}
+.alertItemCritical {
+  background: #fff7f5;
+  border: 1px solid #fdd8cc;
+}
+.alertItemWarning {
+  background: #fffbf0;
+  border: 1px solid #fce8b2;
+}
+.alertItemTop {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+}
+.alertProductName { font-size: 0.875rem; font-weight: 500; color: #1f2937; }
+.alertProductQty  { font-size: 0.75rem; color: #6b7280; }
+
+.alertBar { height: 6px; border-radius: 9999px; overflow: hidden; background: #f0ebe4; }
+.alertBarFill { height: 100%; border-radius: 9999px; }
+.alertBarCritical { background: #c1381a; }
+.alertBarWarning  { background: #e8872a; }
+
+.alertFooter { padding: 0 0.75rem 0.75rem; }
+@media (min-width: 768px) { .alertFooter { padding: 0 1rem 1rem; } }
+.alertFooterBtn {
+  width: 100%;
+  padding: 0.625rem;
+  border-radius: 0.75rem;
+  background: #fdf2ec;
+  color: #c1381a;
+  font-size: 0.875rem;
+  font-weight: 500;
+  border: none;
+  cursor: pointer;
+  transition: opacity 0.15s ease;
+}
+.alertFooterBtn:hover { opacity: 0.85; }

@@ -1,0 +1,10 @@
+{
+  "description": "Streamline inventory management with an intuitive web application designed for businesses, offering real-time tracking, product management, and reporting features.",
+  "robots": {
+    "index": false
+  },
+  "accessibility": {
+    "addBypassLinks": false,
+    "ignoreReducedMotion": false
+  }
+}

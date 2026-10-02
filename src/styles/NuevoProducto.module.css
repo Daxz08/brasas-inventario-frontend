@@ -1,0 +1,30 @@
+.layout {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+@media (min-width: 1024px) {
+  .layout { display: grid; grid-template-columns: 2fr 1fr; gap: 1.5rem; }
+}
+.mainCol { display: flex; flex-direction: column; gap: 1.25rem; }
+
+.tipBox {
+  background: #fdf2ec;
+  border: 1px solid #fdd8cc;
+  border-radius: 1rem;
+  padding: 1rem;
+}
+.tipLabel { font-size: 0.75rem; font-weight: 600; color: #c1381a; margin-bottom: 0.25rem; }
+.tipText  { font-size: 0.75rem; color: #4b5563; line-height: 1.5; }
+
+.radioOption {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem;
+  border-radius: 0.75rem;
+  cursor: pointer;
+  transition: background 0.15s ease;
+  margin-bottom: 0.25rem;
+}
+.radioOption:hover { background: #f9fafb; }

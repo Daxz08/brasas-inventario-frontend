@@ -1,0 +1,88 @@
+.layout {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+@media (min-width: 1024px) {
+  .layout { display: grid; grid-template-columns: 2fr 1fr; gap: 1.5rem; }
+}
+.mainCol { display: flex; flex-direction: column; gap: 1.25rem; }
+
+/* Role selector button — active state driven by --role-border / --role-bg / --role-color */
+.roleBtn {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.875rem;
+  border-radius: 0.75rem;
+  border: 2px solid #e8e0d8;
+  background: #fff;
+  cursor: pointer;
+  text-align: left;
+  transition: all 0.15s ease;
+}
+.roleBtnActive {
+  border-color: #c1381a;
+  background: #fdf2ec;
+}
+
+.roleIconBox {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f9fafb;
+  flex-shrink: 0;
+}
+.roleIconBoxActive { background: #fff; }
+
+.roleName     { font-size: 0.875rem; font-weight: 600; color: #374151; }
+.roleNameActive { color: #c1381a; }
+.roleDesc     { font-size: 0.75rem; color: #9ca3af; }
+
+/* Toggle switch */
+.toggle { position: relative; }
+.toggleInput { position: absolute; opacity: 0; width: 0; height: 0; }
+.toggleTrack {
+  display: block;
+  width: 2.5rem;
+  height: 1.25rem;
+  border-radius: 9999px;
+  background: #e8e0d8;
+  transition: background 0.2s ease;
+  cursor: pointer;
+  position: relative;
+}
+.toggleInput:checked + .toggleTrack { background: #b91c1c; }
+.toggleThumb {
+  position: absolute;
+  top: 0.125rem;
+  left: 0.125rem;
+  width: 1rem;
+  height: 1rem;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 1px 3px rgba(0,0,0,.2);
+  transition: transform 0.2s ease;
+  pointer-events: none;
+}
+.toggleInput:checked ~ .toggleThumb { transform: translateX(1.25rem); }
+
+/* Password field */
+.passwordWrapper { position: relative; }
+.passwordToggle {
+  position: absolute;
+  right: 0.75rem;
+  top: 50%;
+  transform: translateY(-50%);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: #9ca3af;
+  display: flex;
+  align-items: center;
+  transition: color 0.15s;
+}
+.passwordToggle:hover { color: #4b5563; }

@@ -1,0 +1,74 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap');
+@import 'tailwindcss';
+
+@theme inline {
+  --font-heading: 'Poppins', sans-serif;
+  --font-body: 'Inter', sans-serif;
+
+  --color-brand-950: #1a0805;
+  --color-brand-900: #2d1008;
+  --color-brand-800: #5c1e0f;
+  --color-brand-700: #8b2b15;
+  --color-brand-600: #b8341a;
+  --color-brand-500: #c1381a;
+  --color-brand-400: #d94e2b;
+  --color-brand-300: #e87040;
+  --color-brand-200: #f0a070;
+  --color-brand-100: #fad5c0;
+  --color-brand-50: #fdf2ec;
+
+  --color-amber-500: #e8872a;
+  --color-amber-400: #f0a030;
+  --color-amber-100: #fef3db;
+
+  --color-surface: #f7f4f1;
+  --color-card: #ffffff;
+  --color-border: #e8e0d8;
+  --color-text: #1a1010;
+  --color-muted: #8a7a74;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: #f7f4f1;
+  color: #1a1010;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #d4c8be;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #b8a89e;
+}
+
+/* Custom transitions */
+.sidebar-link {
+  transition: all 0.18s ease;
+}
+.btn-primary {
+  transition: all 0.18s ease;
+}
