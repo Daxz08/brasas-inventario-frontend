@@ -75,8 +75,8 @@ export default function App() {
           currentPage={page}
           onNavigate={(p) => navigate(p as Page)}
           userRole={esAdmin ? "admin" : "empleado"}
-          usuarioNombre={`${usuario.nombres} ${usuario.apellidos}`}
-          usuarioRol={usuario.rol}
+          usuarioNombre={`${usuario.nombres ?? ""} ${usuario.apellidos ?? ""}`.trim()}
+          usuarioRol={usuario.rol ?? ""}
           onClose={() => setSidebarOpen(false)}
           onLogout={handleLogout}
         />

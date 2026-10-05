@@ -6,17 +6,33 @@ export interface LoginRequest {
 }
 
 export interface Usuario {
-  token: string;
-  tipo: string;
+  token?: string;
+  tipo?: string;
   nombreUsuario: string;
-  nombres: string;
-  apellidos: string;
-  rol: string;
+  nombres?: string;
+  apellidos?: string;
+  rol?: string;
+  requiere2FA?: boolean;
+  mensaje?: string;
 }
 
 export const authService = {
   login: async (data: LoginRequest): Promise<Usuario> => {
     const response = await apiClient.post<Usuario>('/auth/login', data);
+    // Ya NO guardamos el token aquí, porque aún no existe.
+    // Solo guardamos si la respuesta NO requiere 2FA (por si en el futuro se desactiva)
+    if (response.data.token) {
+      localStorage.setItem('token', response.data.token);
+      localStorage.setItem('usuario', JSON.stringify(response.data));
+    }
+    return response.data;
+  },
+
+  verificarCodigo: async (nombreUsuario: string, codigo: string): Promise<Usuario> => {
+    const response = await apiClient.post<Usuario>('/auth/verificar-codigo', {
+      nombreUsuario,
+      codigo,
+    });
     if (response.data.token) {
       localStorage.setItem('token', response.data.token);
       localStorage.setItem('usuario', JSON.stringify(response.data));
