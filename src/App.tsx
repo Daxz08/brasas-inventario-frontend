@@ -11,6 +11,7 @@ import Reportes from "./pages/Reportes";
 import Usuarios from "./pages/Usuarios";
 import NuevoUsuario from "./pages/NuevoUsuario";
 import { authService, type Usuario } from "./api/authService";
+import { type Producto } from "./api/productoService";
 
 type Page =
   | "login" | "dashboard" | "productos" | "nuevo-producto"
@@ -31,8 +32,8 @@ export default function App() {
   const [page, setPage] = useState<Page>("login");
   const [usuario, setUsuario] = useState<Usuario | null>(null);
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [productoEditar, setProductoEditar] = useState<Producto | null>(null);
 
-  // Al montar, verificar si hay sesión guardada
   useEffect(() => {
     const userGuardado = authService.getUsuarioActual();
     if (userGuardado && authService.estaAutenticado()) {
@@ -110,14 +111,29 @@ export default function App() {
         </div>
 
         <div className="flex-1 overflow-auto">
-          {page === "dashboard"      && <Dashboard onNavigate={(p) => navigate(p)} />}
-          {page === "productos"      && <Productos onNuevoProducto={() => navigate("nuevo-producto")} />}
-          {page === "nuevo-producto" && <NuevoProducto onBack={() => navigate("productos")} />}
-          {page === "movimientos"    && <Movimientos />}
-          {page === "stock"          && <Stock />}
-          {page === "reportes"       && <Reportes />}
-          {page === "usuarios"       && <Usuarios onNuevoUsuario={() => navigate("nuevo-usuario")} />}
-          {page === "nuevo-usuario"  && <NuevoUsuario onBack={() => navigate("usuarios")} />}
+          {page === "dashboard" && <Dashboard onNavigate={(p) => navigate(p)} />}
+          {page === "productos" && (
+            <Productos
+              onNuevoProducto={(p) => {
+                setProductoEditar(p ?? null);
+                navigate("nuevo-producto");
+              }}
+            />
+          )}
+          {page === "nuevo-producto" && (
+            <NuevoProducto
+              onBack={() => {
+                setProductoEditar(null);
+                navigate("productos");
+              }}
+              producto={productoEditar}
+            />
+          )}
+          {page === "movimientos" && <Movimientos />}
+          {page === "stock" && <Stock />}
+          {page === "reportes" && <Reportes />}
+          {page === "usuarios" && <Usuarios onNuevoUsuario={() => navigate("nuevo-usuario")} />}
+          {page === "nuevo-usuario" && <NuevoUsuario onBack={() => navigate("usuarios")} />}
         </div>
       </div>
     </div>
